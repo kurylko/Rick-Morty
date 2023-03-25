@@ -1,9 +1,12 @@
 import Menu from "./Menu";
 
-const Layout = () => {
+const Layout = (props: any) => {
     return (
         <div className="Layout">
-            <Menu />
+            <Menu/>
+            <main>
+                {props.children}
+            </main>
         </div>
     )
 }
