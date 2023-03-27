@@ -17,3 +17,9 @@ export interface ILocation {
     dimension: string;
     residents: []
 }
+
+export interface InputProps {
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    searchInput: string;
+    placeholder: string;
+}

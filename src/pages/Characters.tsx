@@ -1,6 +1,7 @@
 import CharacterCard from "../components/CharacterCard";
 import Filter from "../components/Filter";
-import {useEffect, useState} from "react";
+import SearchBar from "../components/SearchBar";
+import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
 
@@ -20,16 +21,31 @@ const Characters = () => {
 
     const charactersList = characters;
 
+    const [searchInput, setSearchInput] = useState("");
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setSearchInput(e.target.value)
+    };
+
+    const filteredCharacters = charactersList.filter((character) => {
+        let isMatchedSearch =
+            character.name.toLowerCase().includes(searchInput.toLowerCase()) || !searchInput;
+        return (
+            isMatchedSearch
+        );
+    });
+
 
     return (
         <div className="characters-page">
             <h1 id="characters"> Rick & Morty Characters </h1>
             <div className="characters-page-content">
                 <div className="filter-container">
+                    <SearchBar handleChange={handleChange} searchInput={searchInput} placeholder={"Type the name of character..."}/>
                     <Filter/>
                 </div>
                 <div className="character-cards">
-                    {charactersList.map((character: ICharacter) => {
+                    {filteredCharacters.map((character: ICharacter) => {
                         const {name} = character.origin;
                         return (
                             <CharacterCard

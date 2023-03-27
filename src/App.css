@@ -126,8 +126,39 @@
   display: flex;
   width: 36%;
   background-color: #7b47f5;
+  padding: 10px 0 0 10px;
+  justify-content: center;
 }
 
+.search_bar {
+  display: block;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.search_input {
+  font-size: 0.9em;
+  font-weight: inherit;
+  line-height: inherit;
+  border-radius: 10px;
+  border-color: transparent;
+  background-color: white;
+  max-width: 350px;
+  min-width: 220px;
+  height: 34px
+}
+
+.search_button {
+  display: none;
+}
 
 
 @media screen and (min-width: 600px) {
