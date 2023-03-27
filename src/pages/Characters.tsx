@@ -38,16 +38,13 @@ const Characters = () => {
 
     const handleSelectStatus = (event) => {
         setSelectedStatus(event.target.value);
-        setSelectedStatus(charactersList.find((character) => character.status === event.target.value));
     };
 
     const handleSelectSpecies = (event) => {
         setSelectedSpecies(event.target.value);
-        setSelectedSpecies(charactersList.find((character) => character.species === event.target.value));
     };
     const handleSelectGender = (event) => {
         setSelectedGender(event.target.value);
-        setSelectedGender(charactersList.find((character) => character.gender === event.target.value));
     };
 
 
