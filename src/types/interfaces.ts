@@ -1,3 +1,5 @@
+import React, {SyntheticEvent} from "react";
+
 export interface ICharacter {
     id: number;
     image: string;
@@ -22,4 +24,11 @@ export interface InputProps {
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     searchInput: string;
     placeholder: string;
+}
+
+
+export interface ICharactersFiltersProps {
+    filteredCategoryOptions: string;
+    onSelect: (e: SyntheticEvent<HTMLDivElement>) => void;
+    category: string
 }

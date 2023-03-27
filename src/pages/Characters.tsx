@@ -27,11 +27,41 @@ const Characters = () => {
         setSearchInput(e.target.value)
     };
 
+
+    let statusOptions = ["Alive", "Dead", "unknown"];
+    let speciesOptions = ["Human", "Alien"];
+    let genderOptions = ["Female", "Male", "Genderless", "unknown"];
+
+    const [selectedStatus, setSelectedStatus] = useState();
+    const [selectedSpecies, setSelectedSpecies] = useState();
+    const [selectedGender, setSelectedGender] = useState();
+
+    const handleSelectStatus = (event) => {
+        setSelectedStatus(event.target.value);
+        setSelectedStatus(charactersList.find((character) => character.status === event.target.value));
+    };
+
+    const handleSelectSpecies = (event) => {
+        setSelectedSpecies(event.target.value);
+        setSelectedSpecies(charactersList.find((character) => character.species === event.target.value));
+    };
+    const handleSelectGender = (event) => {
+        setSelectedGender(event.target.value);
+        setSelectedGender(charactersList.find((character) => character.gender === event.target.value));
+    };
+
+
     const filteredCharacters = charactersList.filter((character) => {
-        let isMatchedSearch =
+        let isMatchedBySearch =
             character.name.toLowerCase().includes(searchInput.toLowerCase()) || !searchInput;
+        let isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
+        let isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
+        let isMatchedByGender = character.gender === selectedGender || !selectedGender
         return (
-            isMatchedSearch
+            isMatchedBySearch &&
+            isMatchedByStatus &&
+            isMatchedBySpecies &&
+            isMatchedByGender
         );
     });
 
@@ -41,8 +71,24 @@ const Characters = () => {
             <h1 id="characters"> Rick & Morty Characters </h1>
             <div className="characters-page-content">
                 <div className="filter-container">
-                    <SearchBar handleChange={handleChange} searchInput={searchInput} placeholder={"Type the name of character..."}/>
-                    <Filter/>
+                    <h2 className="before-filters-text">Find the character </h2>
+                    <SearchBar handleChange={handleChange} searchInput={searchInput}
+                               placeholder={"Type the name of character..."}/>
+                    <Filter
+                        category={"status"}
+                        filteredCategoryOptions={statusOptions}
+                        onSelect={handleSelectStatus}
+                    />
+                    <Filter
+                        category={"species"}
+                        filteredCategoryOptions={speciesOptions}
+                        onSelect={handleSelectSpecies}
+                    />
+                    <Filter
+                        category={"gender"}
+                        filteredCategoryOptions={genderOptions}
+                        onSelect={handleSelectGender}
+                    />
                 </div>
                 <div className="character-cards">
                     {filteredCharacters.map((character: ICharacter) => {

@@ -124,10 +124,17 @@
 
 .filter-container{
   display: flex;
-  width: 36%;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   background-color: #7b47f5;
-  padding: 10px 0 0 10px;
-  justify-content: center;
+  padding: 50px 0 0 10px;
+}
+
+.before-filters-text{
+  color: white;
+  font-weight: 400;
+  padding-bottom: 5px;
 }
 
 .search_bar {
@@ -160,10 +167,28 @@
   display: none;
 }
 
+.dropdown {
+  display: flex;
+  margin: 30px;
+  height: 34px;
+  width: 170px;
+  background-color: lemonchiffon;
+  margin-bottom: 30px;
+  font-size: 14px;
+  text-align: center;
+  border: 2px solid #a78d75;
+  border-radius: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
 
 @media screen and (min-width: 600px) {
   .characters-page-content{
     flex-direction: row;
+  }
+  .filter-container {
+    width: 36%;
   }
 }
 
