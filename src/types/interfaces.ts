@@ -1,13 +1,13 @@
-
 export interface ICharacter {
     id: number;
+    image: string;
     name: string;
     status: string;
     species: string;
     gender: string;
     origin: {
-        name: string;
-    }
+        name: string
+    };
 }
 
 export interface ILocation {
