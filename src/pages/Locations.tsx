@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import LocationCard from "../components/LocationCard";
 import {ILocation} from "../types/interfaces";
+import {Link} from "react-router-dom";
 
 const Locations = () => {
     const [locations, setLocations] = useState([]);
@@ -17,24 +18,27 @@ const Locations = () => {
     }, []);
 
     const locationsList = locations;
-    console.log(locationsList)
-
-    let numberOfResidents = locationsList.forEach((location) =>
-        location.residents.length;
-)
-
-    console.log(numberOfResidents)
+    console.log("2", locationsList)
 
     return (
         <div className="locations-page">
-            Locations page
-            {locationsList.map((location: ILocation) => (
-                <LocationCard id={location.id}
-                              name={location.name}
-                              type={location.type}
-                              dimension={location.dimension}
-                              residents={location.residents}/>
-            ))}
+            <h1 id="locations">Locations of Rick & Morty universe </h1>
+
+            <div className="location-cards-container">
+
+                    {locationsList.map((location: ILocation) => (
+                        <Link to="/characters" className="locations-link">
+                        <LocationCard id={location.id}
+                                      name={location.name}
+                                      type={location.type}
+                                      dimension={location.dimension}
+                                      number_of_residents={location.residents.length}/>
+                        </Link>
+                    ))}
+
+            </div>
+
+
         </div>
     )
 }
