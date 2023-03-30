@@ -3,11 +3,29 @@
   text-align: center;
 }
 
-.Menu {
+.layout{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.layout-main{
+  display: flex;
+  width: 100%;
+}
+
+.menu-container{
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.menu {
   display: flex;
   width: 100vw;
   height: 65px;
-  background-color: grey;
+  background-color: #7b47f5;
   color: white;
   font-weight: 400;
   position: sticky;
@@ -31,6 +49,14 @@
 
 .menu-link {
   color: white;
+}
+
+.menu-toggler{
+  display: flex;
+  background-color: #7b47f5;
+  color: white;
+  width: 60px;
+  height: 100%;
 }
 
 .characters-page{
@@ -93,7 +119,7 @@
   font-weight: 400;
   font-size: 1.2em;
   align-items: center;
-  border-radius: 0 0 0 0;
+  border-radius: 0 10px 0 0;
 }
 
 .characters-infobox-info {

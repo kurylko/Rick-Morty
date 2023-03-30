@@ -4,6 +4,8 @@ import SearchBar from "../components/SearchBar";
 import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
+import { useLocation } from 'react-router-dom';
+
 
 const Characters = () => {
     const [characters, setCharacters] = useState([]);
@@ -47,6 +49,10 @@ const Characters = () => {
         setSelectedGender(event.target.value);
     };
 
+    const location = useLocation();
+    const queryParams = parse(location.search);
+    const originFromParams = queryParams.origin;
+
 
     const filteredCharacters = charactersList.filter((character) => {
         let isMatchedBySearch =
@@ -54,11 +60,13 @@ const Characters = () => {
         let isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
         let isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
         let isMatchedByGender = character.gender === selectedGender || !selectedGender
+        let isMatchedByOrigin = character.origin.id === originFromParams || !originFromParams
         return (
             isMatchedBySearch &&
             isMatchedByStatus &&
             isMatchedBySpecies &&
-            isMatchedByGender
+            isMatchedByGender &&
+            isMatchedByOrigin
         );
     });
 
