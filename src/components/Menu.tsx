@@ -1,16 +1,16 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
-const Menu = () => {
+const Menu = (props) => {
+    const {handleClickCharacters, handleClickLocations} = props;
 
     return (
         <div className="menu">
             <ul className="menu-list">
-                <li className="menu-item">
-                    <Link to="/characters" className="menu-link">Characters</Link>
+                <li className="menu-item" onClick={handleClickCharacters}>
+                    Characters
                 </li>
-                <li className="menu-item" >
-                    <Link to="/locations" className="menu-link">Locations</Link>
+                <li className="menu-item" onClick={handleClickLocations}>
+                    Locations
                 </li>
             </ul>
         </div>

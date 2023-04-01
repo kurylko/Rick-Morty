@@ -49,10 +49,6 @@ const Characters = () => {
         setSelectedGender(event.target.value);
     };
 
-    const location = useLocation();
-    const queryParams = parse(location.search);
-    const originFromParams = queryParams.origin;
-
 
     const filteredCharacters = charactersList.filter((character) => {
         let isMatchedBySearch =
@@ -60,13 +56,11 @@ const Characters = () => {
         let isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
         let isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
         let isMatchedByGender = character.gender === selectedGender || !selectedGender
-        let isMatchedByOrigin = character.origin.id === originFromParams || !originFromParams
         return (
             isMatchedBySearch &&
             isMatchedByStatus &&
             isMatchedBySpecies &&
-            isMatchedByGender &&
-            isMatchedByOrigin
+            isMatchedByGender
         );
     });
 
