@@ -39,13 +39,6 @@ const Layout = (props: any) => {
                     handleToggler={handleToggler}
                 />
             </div>
-
-            <main className="layout-main">
-                {!showCharacter ?
-                    <Locations /> :
-                    <Characters />
-                }
-            </main>
         </div>
     )
 }

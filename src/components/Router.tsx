@@ -12,11 +12,11 @@ const AppRoutes = () => {
 
     return (
         <Router>
-            <Routes>
-                <Route path="/" element={<Layout/>}/>
-                <Route path="/characters" element={<Characters/>}/>
-                <Route path="/locations" element={<Locations/>}/>
-            </Routes>
+                <Routes>
+                    <Route path="/" element={<Layout/>}/>
+                    <Route path="/characters" element={<Characters/>}/>
+                    <Route path="/locations" element={<Locations/>}/>
+                </Routes>
         </Router>
     );
 };

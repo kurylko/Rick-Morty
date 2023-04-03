@@ -6,7 +6,9 @@ const CharacterCard = (props: ICharacter) => {
 
     return (
         <div className="characterCard">
-            <div className="character-image" style={{backgroundImage: `url(${image})`}}></div>
+            <div className="character-image">
+                <img src={image} alt={`${name} image`}/>
+            </div>
             <div className="character-infobox">
                 <div className="character-name">{name} </div>
                 <div className="characters-infobox-info">
