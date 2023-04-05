@@ -17,7 +17,7 @@
 .menu-container{
   display: flex;
   justify-content: flex-end;
-  background-color: #fcf3e8;
+  background-color: #7b47f5;
   width: 100%;
 }
 
@@ -30,6 +30,7 @@
   font-weight: 400;
   position: sticky;
   top: 0;
+  transition-delay: 1s;
 }
 
 .menu-list {
@@ -214,6 +215,18 @@
   border-radius: 40px;
   align-items: center;
   justify-content: center;
+}
+
+.nextPrevBtnContainer{
+  display: flex;
+  width: 50%;
+  justify-content: space-around;
+  padding: 10px 0 10px;
+}
+
+.paginationBtn{
+  border-radius: 10px;
+  border: 1px solid #213547;
 }
 
 .locations-page{

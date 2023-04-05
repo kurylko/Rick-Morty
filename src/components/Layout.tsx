@@ -13,26 +13,12 @@ const Layout = (props: any) => {
         setShowMenu(!showMenu)
     };
 
-    let showCharacters = true;
-    const handleClickCharacters = () => {
-        console.log("clicked characters");
-        setShowCharacter(true);
-    };
-
-    const handleClickLocations = () => {
-        console.log("clicked locations");
-        setShowCharacter(false)
-    };
-
-    console.log(showCharacters)
 
     return (
         <div className="layout">
             <div className="menu-container">
                 {!showMenu ? null :
-                    <Menu handleClickCharacters={handleClickCharacters}
-                          handleClickLocations={handleClickLocations}
-                    />
+                    <Menu/>
                 }
                 <MenuToggler
                     showMenu={showMenu}

@@ -6,19 +6,28 @@ import {Link} from "react-router-dom";
 
 const Locations = () => {
     const [locations, setLocations] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
-        axios.get('https://rickandmortyapi.com/api/location')
+        axios.get(`https://rickandmortyapi.com/api/location/?page=${currentPage}`)
             .then(response => {
                 setLocations(response.data.results)
             })
             .catch(error => {
                 console.log(error);
             });
-    }, []);
+    }, [currentPage]);
 
     const locationsList = locations;
-    console.log("2", locationsList)
+
+    const handleNextPage = () => {
+        setCurrentPage(currentPage + 1);
+    };
+
+    const handlePreviousPage = () => {
+        if (currentPage === 1) return;
+        setCurrentPage(currentPage - 1);
+    };
 
 
     return (
@@ -27,19 +36,20 @@ const Locations = () => {
 
             <div className="location-cards-container">
 
-                    {locationsList.map((location: ILocation) => (
-                        <Link to={`/characters?origin=${location.id}`} className="locations-link">
+                {locationsList.map((location: ILocation) => (
+                    <Link to={`/characters?location=${location.id}`} className="locations-link">
                         <LocationCard id={location.id}
                                       name={location.name}
                                       type={location.type}
                                       dimension={location.dimension}
                                       number_of_residents={location.residents.length}/>
-                        </Link>
-                    ))}
-
+                    </Link>
+                ))}
+                <div className="nextPrevBtnContainer">
+                    <button className="paginationBtn" onClick={handlePreviousPage}>Previous Page</button>
+                    <button className="paginationBtn" onClick={handleNextPage}>Next Page</button>
+                </div>
             </div>
-
-
         </div>
     )
 }
