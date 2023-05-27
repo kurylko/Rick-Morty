@@ -30,6 +30,7 @@ const Locations = () => {
     };
 
 
+
     return (
         <div className="locations-page">
             <h1 id="locations">Locations of Rick & Morty universe </h1>
@@ -37,7 +38,7 @@ const Locations = () => {
             <div className="location-cards-container">
 
                 {locationsList.map((location: ILocation) => (
-                    <Link to={`/characters?location=${location.id}`} className="locations-link">
+                    <Link to={`/characters/${location.name}`} className="locations-link">
                         <LocationCard id={location.id}
                                       name={location.name}
                                       type={location.type}

@@ -7,9 +7,11 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint src"
+    "lint": "eslint \"src/**/*.ts\""
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.21.8",
+    "@babel/preset-react": "^7.22.3",
     "axios": "^1.3.4",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
@@ -26,6 +28,7 @@
     "eslint": "^8.36.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-typescript": "^0.14.0",
     "typescript": "^4.9.3",
     "vite": "^4.2.0"
   }

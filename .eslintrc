@@ -7,16 +7,21 @@
     "eslint:recommended",
     "plugin:react/recommended"
   ],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "requireConfigFile": false,
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
     },
     "sourceType": "module"
   },
   "plugins": [
     "react",
-    "react-hooks"
+    "react-hooks",
+    "typescript"
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
