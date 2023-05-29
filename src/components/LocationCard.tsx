@@ -2,8 +2,7 @@ import React from "react";
 import {ICharacter, ILocation} from "../types/interfaces";
 
 const LocationCard = (props: ILocation) => {
-    const {name, type, dimension, number_of_residents} = props;
-
+    const {name, type, dimension, number_of_residents, residents} = props;
     return (
         <div className="locationCard">
             <div className="location-name">{name}</div>

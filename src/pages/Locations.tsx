@@ -30,22 +30,26 @@ const Locations = () => {
     };
 
 
-
     return (
         <div className="locations-page">
             <h1 id="locations">Locations of Rick & Morty universe </h1>
 
             <div className="location-cards-container">
 
-                {locationsList.map((location: ILocation) => (
-                    <Link to={`/characters/${location.name}`} className="locations-link">
-                        <LocationCard id={location.id}
-                                      name={location.name}
-                                      type={location.type}
-                                      dimension={location.dimension}
-                                      number_of_residents={location.residents.length}/>
+                {locationsList.map((location: ILocation) => {
+                    const {residents} = location;
+                    const parsedResidents = residents.map(resident => resident.split('/').slice(-1)[0]).join(',')
+                    console.log(parsedResidents)
+                    return <Link to={`/characters/${parsedResidents}`} className="locations-link">
+                        <LocationCard
+                            {...location}
+                            id={location.id}
+                            name={location.name}
+                            type={location.type}
+                            dimension={location.dimension}
+                            number_of_residents={location.residents.length}/>
                     </Link>
-                ))}
+                })}
                 <div className="nextPrevBtnContainer">
                     <button className="paginationBtn" onClick={handlePreviousPage}>Previous Page</button>
                     <button className="paginationBtn" onClick={handleNextPage}>Next Page</button>

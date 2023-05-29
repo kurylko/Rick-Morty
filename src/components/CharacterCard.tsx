@@ -2,7 +2,7 @@ import React from "react";
 import {ICharacter} from "../types/interfaces";
 
 const CharacterCard = (props: ICharacter) => {
-    const {image, name, status, species, gender, origin} = props;
+    const {image, name, status, species, gender, origin, location} = props;
 
     return (
         <div className="characterCard">
@@ -17,12 +17,14 @@ const CharacterCard = (props: ICharacter) => {
                         <li className="character-info">Species:</li>
                         <li className="character-info">Gender:</li>
                         <li className="character-info">Origin:</li>
+                        <li className="character-info">Location:</li>
                     </div>
                     <div className="character-info-answers">
                         <li className="character-info">{status}</li>
                         <li className="character-info">{species}</li>
                         <li className="character-info">{gender}</li>
                         <li className="character-info">{origin}</li>
+                        <li className="character-info">{location}</li>
                     </div>
                 </div>
             </div>

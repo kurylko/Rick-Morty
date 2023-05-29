@@ -9,7 +9,6 @@ const Layout = (props: any) => {
     const [showCharacter, setShowCharacter] = useState(true)
 
     const handleToggler = () => {
-        console.log("close the menu");
         setShowMenu(!showMenu)
     };
 

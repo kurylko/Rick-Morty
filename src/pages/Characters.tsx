@@ -4,28 +4,27 @@ import SearchBar from "../components/SearchBar";
 import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
-import {useLocation, useSearchParams, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 
 const Characters = () => {
     const [characters, setCharacters] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const { residents = '' } = useParams();
 
     useEffect(() => {
-        axios.get(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
+        axios.get(`https://rickandmortyapi.com/api/character/${residents}?page=${currentPage}`)
             .then(response => {
-                setCharacters(response.data.results);
+                console.log("response", response)
+                setCharacters(residents ? response.data : response.data.results);
             })
             .catch(error => {
                 console.log(error);
             });
     }, [currentPage]);
 
-    const charactersList = characters;
+    const charactersList = characters || [];
 
-    const params = useParams();
-    const characterOrig = params.characterOrig;
-    console.log("1", characterOrig)
 
 
     const [searchInput, setSearchInput] = useState("");
@@ -54,7 +53,7 @@ const Characters = () => {
     };
 
 
-    const filteredCharacters = charactersList.filter((character) => {
+    const filteredCharacters = charactersList.filter((character: ICharacter) => {
 
         let isMatchedBySearch =
             character.name.toLowerCase().includes(searchInput.toLowerCase()) || !searchInput;
@@ -70,8 +69,7 @@ const Characters = () => {
         );
     });
 
-    const finalListOfCharacters = (!characterOrig ?
-        filteredCharacters : null);
+    const finalListOfCharacters = filteredCharacters;
 
 
     const handleNextPage = () => {
@@ -121,6 +119,7 @@ const Characters = () => {
                                 gender={character.gender}
                                 origin={character.origin.name}
                                 id={character.id}
+                                location={character.location.name}
                             />
                         );
                     })}
