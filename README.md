@@ -1,6 +1,6 @@
 # Rick-Morty - Test task
 
-Task: to develop single page web application, which displayes characters and locations from Rick&Morty universe. 
+Task: to develop single page web application, which displays characters and locations from Rick&Morty universe. 
 
 # Subtasks: 
 - responsive menu;
