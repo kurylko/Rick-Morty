@@ -24,6 +24,12 @@ const Layout = (props: any) => {
                     handleToggler={handleToggler}
                 />
             </div>
+            <pre className="welcome-message">{`
+                Welcome to Rick&Morty unofficial website.
+                Creted by Valeriia Kurylko.
+                Powered by React, Vite, TypeScript, Redux, axios, react-router-dom.`
+            }
+            </pre>
         </div>
     )
 }

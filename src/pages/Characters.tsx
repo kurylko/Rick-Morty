@@ -2,29 +2,25 @@ import CharacterCard from "../components/CharacterCard";
 import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
 import {ChangeEvent, useEffect, useState} from "react";
-import axios from "axios";
 import {ICharacter} from "../types/interfaces";
 import {useParams} from 'react-router-dom';
+import {useDispatch, useSelector} from "react-redux";
+import {actionGetCharactersList} from "../actions/characters";
 
 
 const Characters = () => {
-    const [characters, setCharacters] = useState([]);
+    const { data: characters, isLoading } = useSelector(state => state.characters)
+
     const [currentPage, setCurrentPage] = useState(1);
     const { residents = '' } = useParams();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get(`https://rickandmortyapi.com/api/character/${residents}?page=${currentPage}`)
-            .then(response => {
-                console.log("response", response)
-                setCharacters(residents ? response.data : response.data.results);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+       dispatch(actionGetCharactersList({
+           residents,
+           page: currentPage,
+       }))
     }, [currentPage]);
-
-    const charactersList = characters || [];
-
 
 
     const [searchInput, setSearchInput] = useState("");
@@ -53,7 +49,7 @@ const Characters = () => {
     };
 
 
-    const filteredCharacters = charactersList.filter((character: ICharacter) => {
+    const filteredCharacters = characters.filter((character: ICharacter) => {
 
         let isMatchedBySearch =
             character.name.toLowerCase().includes(searchInput.toLowerCase()) || !searchInput;
