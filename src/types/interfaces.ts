@@ -10,6 +10,9 @@ export interface ICharacter {
     origin: {
         name: string
     };
+    location: {
+        name: string
+    };
 }
 
 export interface ILocation {
@@ -17,7 +20,8 @@ export interface ILocation {
     name: string;
     type: string;
     dimension: string;
-    residents: number;
+    number_of_residents: number;
+    residents: string;
 }
 
 export interface InputProps {

@@ -36,15 +36,20 @@ const Locations = () => {
 
             <div className="location-cards-container">
 
-                {locationsList.map((location: ILocation) => (
-                    <Link to={`/characters?location=${location.id}`} className="locations-link">
-                        <LocationCard id={location.id}
-                                      name={location.name}
-                                      type={location.type}
-                                      dimension={location.dimension}
-                                      number_of_residents={location.residents.length}/>
+                {locationsList.map((location: ILocation) => {
+                    const {residents} = location;
+                    const parsedResidents = residents.map(resident => resident.split('/').slice(-1)[0]).join(',')
+                    console.log(parsedResidents)
+                    return <Link to={`/characters/${parsedResidents}`} className="locations-link">
+                        <LocationCard
+                            {...location}
+                            id={location.id}
+                            name={location.name}
+                            type={location.type}
+                            dimension={location.dimension}
+                            number_of_residents={location.residents.length}/>
                     </Link>
-                ))}
+                })}
                 <div className="nextPrevBtnContainer">
                     <button className="paginationBtn" onClick={handlePreviousPage}>Previous Page</button>
                     <button className="paginationBtn" onClick={handleNextPage}>Next Page</button>
