@@ -30,4 +30,4 @@ react-router-dom
 redux
 
 
-<img width="1451" alt="Screenshot 2023-05-23 at 12 14 19" src="https://github.com/kurylko/Rick-Morty/public/rick.png">
+![Project screen](public/rick.png)
