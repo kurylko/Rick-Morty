@@ -296,6 +296,7 @@
 
 .location-info {
     list-style: none;
+    text-align: left;
 }
 
 .location-question {
