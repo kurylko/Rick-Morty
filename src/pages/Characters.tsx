@@ -5,6 +5,7 @@ import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
 import {useParams} from 'react-router-dom';
+import Banner from "../components/Banner";
 
 
 const Characters = () => {
@@ -87,6 +88,7 @@ const Characters = () => {
             <h1 id="characters"> Rick & Morty Characters </h1>
             <div className="characters-page-content">
                 <div className="filter-container">
+                    <Banner />
                     <h2 className="before-filters-text">Find the character </h2>
                     <SearchBar handleChange={handleChange} searchInput={searchInput}
                                placeholder={"Type the name of character..."}/>
