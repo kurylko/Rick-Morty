@@ -1,4 +1,4 @@
-# Rick-Morty - Test task
+# Rick-Morty App - Test task
 
 Task: to develop single page web application, which displays characters and locations from Rick&Morty universe. 
 
@@ -30,4 +30,4 @@ react-router-dom
 redux
 
 
-<img width="1451" alt="Screenshot 2023-05-23 at 12 14 19" src="https://i.ibb.co/rbCBLj0/rick.png">
+![Project screen](public/rick.png)
