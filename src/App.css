@@ -214,13 +214,19 @@
     margin: 30px;
     height: 55px;
     width: 230px;
-    background-color: #FFFACD;
+    background-color: rgba(112, 214, 227, 0.32);
     font-size: 14px;
     text-align: center;
-    border: 2px solid #a78d75;
-    border-radius: 40px;
+    border-radius: 10px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown:hover {
+    background-color: rgba(148, 47, 255, 0.07);
+    border-color: rgba(123, 71, 245, 0.37);
 }
 
 .nextPrevBtnContainer {
@@ -355,7 +361,7 @@
 .banner-text {
     position: absolute;
     width: 80%;
-    top: 80%;
+    top: 85%;
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;

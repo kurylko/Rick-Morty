@@ -31,7 +31,7 @@ const Characters = () => {
     const [searchInput, setSearchInput] = useState("");
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        setSearchInput(e.target.value)
+        setSearchInput(e.target.value);
     };
 
     let statusOptions = ["Alive", "Dead", "unknown"];
