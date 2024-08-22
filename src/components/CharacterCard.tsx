@@ -6,8 +6,8 @@ const CharacterCard = (props: ICharacter) => {
 
     return (
         <div className="characterCard">
-            <div className="character-image">
-                <img src={image} alt={`${name} image`}/>
+            <div className="character-image-container">
+                <img className="character-image" src={image} alt={`${name} image`}/>
             </div>
             <div className="character-infobox">
                 <div className="character-name">{name} </div>
