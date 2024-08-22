@@ -1,4 +1,4 @@
-# Rick-Morty - Test task
+# Rick-Morty App - Test task
 
 Task: to develop single page web application, which displays characters and locations from Rick&Morty universe. 
 
