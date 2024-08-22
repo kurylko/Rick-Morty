@@ -91,7 +91,7 @@
 
 .characterCard {
     display: flex;
-    width: 75%;
+    width: 85%;
     height: 170px;
     border: 1px solid rgba(48, 46, 52, 0.09);
     border-radius: 10px;
@@ -142,14 +142,14 @@
 .character-info-questions {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 30%;
     align-items: flex-start;
 }
 
 .character-info-answers {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     align-items: flex-start;
 }
 
@@ -320,7 +320,7 @@
     .filter-container {
         width: 36%;
         background-color: transparent;
-        padding: 50px 0 0 10px;
+        padding: 0 0 0 10px;
     }
 
     .before-filters-text {
