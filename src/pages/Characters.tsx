@@ -37,6 +37,8 @@ const Characters = () => {
     let speciesOptions = ["Human", "Alien"];
     let genderOptions = ["Female", "Male", "Genderless", "unknown"];
 
+
+
     const [selectedStatus, setSelectedStatus] = useState('');
     const [selectedSpecies, setSelectedSpecies] = useState('');
     const [selectedGender, setSelectedGender] = useState('');
