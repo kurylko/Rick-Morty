@@ -1,8 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-const Menu = (props) => {
-    const {handleClickCharacters, handleClickLocations} = props;
+const Menu = () => {
 
     return (
         <div className="menu">

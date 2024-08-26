@@ -32,7 +32,7 @@ export interface InputProps {
 
 
 export interface ICharactersFiltersProps {
-    filteredCategoryOptions: string;
-    onSelect: (e: SyntheticEvent<HTMLDivElement>) => void;
+    filteredCategoryOptions: ICharacter[];
+    onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     category: string
 }
