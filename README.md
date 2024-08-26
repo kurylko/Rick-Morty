@@ -23,11 +23,7 @@ react
     
 react-dom
     
-react-redux
-    
 react-router-dom
-    
-redux
 
 
 ![Project screen](public/rick.png)
