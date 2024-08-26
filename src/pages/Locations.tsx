@@ -39,7 +39,7 @@ const Locations = () => {
                 {locationsList.map((location: ILocation) => {
                     const {residents} = location;
                     const parsedResidents = residents.map(resident => resident.split('/').slice(-1)[0]).join(',')
-                    console.log(parsedResidents)
+
                     return <Link to={`/characters/${parsedResidents}`} className="locations-link">
                         <LocationCard
                             {...location}

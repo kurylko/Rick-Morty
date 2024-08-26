@@ -16,7 +16,6 @@ const Characters = () => {
     useEffect(() => {
         axios.get(`https://rickandmortyapi.com/api/character/${residents}?page=${currentPage}`)
             .then(response => {
-                console.log("response", response)
                 setCharacters(residents ? response.data : response.data.results);
             })
             .catch(error => {
@@ -114,14 +113,7 @@ const Characters = () => {
                         return (
                             <CharacterCard
                                 key={character.id}
-                                image={character.image}
-                                name={character.name}
-                                status={character.status}
-                                species={character.species}
-                                gender={character.gender}
-                                origin={character.origin.name}
-                                id={character.id}
-                                location={character.location.name}
+                                {...character}
                             />
                         );
                     })}
