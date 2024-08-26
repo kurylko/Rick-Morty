@@ -5,7 +5,7 @@ interface IMenuToggler {
     handleToggler: () => void;
 }
 
-const MenuToggler = ({showMenu, handleToggler}) => {
+const MenuToggler = ({showMenu, handleToggler} : IMenuToggler) => {
     return (
         <div className="menu-toggler" onClick={handleToggler}>
             {showMenu ? "Close X" : "Open ▼"}
