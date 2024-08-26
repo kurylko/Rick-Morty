@@ -5,6 +5,7 @@ import {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
 import {useParams} from 'react-router-dom';
+import Banner from "../components/Banner";
 
 
 const Characters = () => {
@@ -15,7 +16,6 @@ const Characters = () => {
     useEffect(() => {
         axios.get(`https://rickandmortyapi.com/api/character/${residents}?page=${currentPage}`)
             .then(response => {
-                console.log("response", response)
                 setCharacters(residents ? response.data : response.data.results);
             })
             .catch(error => {
@@ -30,27 +30,31 @@ const Characters = () => {
     const [searchInput, setSearchInput] = useState("");
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        setSearchInput(e.target.value)
+        setSearchInput(e.target.value);
     };
 
     let statusOptions = ["Alive", "Dead", "unknown"];
     let speciesOptions = ["Human", "Alien"];
     let genderOptions = ["Female", "Male", "Genderless", "unknown"];
 
-    const [selectedStatus, setSelectedStatus] = useState();
-    const [selectedSpecies, setSelectedSpecies] = useState();
-    const [selectedGender, setSelectedGender] = useState();
 
-    const handleSelectStatus = (event) => {
+
+    const [selectedStatus, setSelectedStatus] = useState('');
+    const [selectedSpecies, setSelectedSpecies] = useState('');
+    const [selectedGender, setSelectedGender] = useState('');
+
+    const handleSelectStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedStatus(event.target.value);
     };
 
-    const handleSelectSpecies = (event) => {
+    const handleSelectSpecies = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedSpecies(event.target.value);
     };
-    const handleSelectGender = (event) => {
+
+    const handleSelectGender = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedGender(event.target.value);
     };
+
 
 
     const filteredCharacters = charactersList.filter((character: ICharacter) => {
@@ -87,6 +91,7 @@ const Characters = () => {
             <h1 id="characters"> Rick & Morty Characters </h1>
             <div className="characters-page-content">
                 <div className="filter-container">
+                    <Banner />
                     <h2 className="before-filters-text">Find the character </h2>
                     <SearchBar handleChange={handleChange} searchInput={searchInput}
                                placeholder={"Type the name of character..."}/>
@@ -112,14 +117,7 @@ const Characters = () => {
                         return (
                             <CharacterCard
                                 key={character.id}
-                                image={character.image}
-                                name={character.name}
-                                status={character.status}
-                                species={character.species}
-                                gender={character.gender}
-                                origin={character.origin.name}
-                                id={character.id}
-                                location={character.location.name}
+                                {...character}
                             />
                         );
                     })}

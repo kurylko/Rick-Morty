@@ -1,8 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 
-const MenuToggler = (props) => {
-    const {showMenu, handleToggler} = props;
+interface IMenuToggler {
+    showMenu: boolean;
+    handleToggler: () => void;
+}
 
+const MenuToggler = ({showMenu, handleToggler} : IMenuToggler) => {
     return (
         <div className="menu-toggler" onClick={handleToggler}>
             {showMenu ? "Close X" : "Open ▼"}
