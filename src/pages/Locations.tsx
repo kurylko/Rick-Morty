@@ -5,7 +5,7 @@ import {ILocation} from "../types/interfaces";
 import {Link} from "react-router-dom";
 
 const Locations = () => {
-    const [locations, setLocations] = useState([]);
+    const [locations, setLocations] = useState<ILocation[]>([]);
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -17,8 +17,6 @@ const Locations = () => {
                 console.log(error);
             });
     }, [currentPage]);
-
-    const locationsList = locations;
 
     const handleNextPage = () => {
         setCurrentPage(currentPage + 1);
@@ -35,9 +33,8 @@ const Locations = () => {
             <h1 id="locations">Locations of Rick & Morty universe </h1>
 
             <div className="location-cards-container">
-
-                {locationsList.map((location: ILocation) => {
-                    const {residents} = location;
+                {locations.map((location) => {
+                    const residents = location['residents'];
                     const parsedResidents = residents.map(resident => resident.split('/').slice(-1)[0]).join(',')
 
                     return <Link to={`/characters/${parsedResidents}`} className="locations-link">

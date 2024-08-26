@@ -37,20 +37,22 @@ const Characters = () => {
     let speciesOptions = ["Human", "Alien"];
     let genderOptions = ["Female", "Male", "Genderless", "unknown"];
 
-    const [selectedStatus, setSelectedStatus] = useState();
-    const [selectedSpecies, setSelectedSpecies] = useState();
-    const [selectedGender, setSelectedGender] = useState();
+    const [selectedStatus, setSelectedStatus] = useState('');
+    const [selectedSpecies, setSelectedSpecies] = useState('');
+    const [selectedGender, setSelectedGender] = useState('');
 
-    const handleSelectStatus = (event) => {
+    const handleSelectStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedStatus(event.target.value);
     };
 
-    const handleSelectSpecies = (event) => {
+    const handleSelectSpecies = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedSpecies(event.target.value);
     };
-    const handleSelectGender = (event) => {
+
+    const handleSelectGender = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedGender(event.target.value);
     };
+
 
 
     const filteredCharacters = charactersList.filter((character: ICharacter) => {
