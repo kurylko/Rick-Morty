@@ -16,7 +16,6 @@ const Characters = () => {
     useEffect(() => {
         axios.get(`https://rickandmortyapi.com/api/character/${residents}?page=${currentPage}`)
             .then(response => {
-                console.log("response", response)
                 setCharacters(residents ? response.data : response.data.results);
             })
             .catch(error => {
@@ -38,20 +37,24 @@ const Characters = () => {
     let speciesOptions = ["Human", "Alien"];
     let genderOptions = ["Female", "Male", "Genderless", "unknown"];
 
-    const [selectedStatus, setSelectedStatus] = useState();
-    const [selectedSpecies, setSelectedSpecies] = useState();
-    const [selectedGender, setSelectedGender] = useState();
 
-    const handleSelectStatus = (event) => {
+
+    const [selectedStatus, setSelectedStatus] = useState('');
+    const [selectedSpecies, setSelectedSpecies] = useState('');
+    const [selectedGender, setSelectedGender] = useState('');
+
+    const handleSelectStatus = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedStatus(event.target.value);
     };
 
-    const handleSelectSpecies = (event) => {
+    const handleSelectSpecies = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedSpecies(event.target.value);
     };
-    const handleSelectGender = (event) => {
+
+    const handleSelectGender = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedGender(event.target.value);
     };
+
 
 
     const filteredCharacters = charactersList.filter((character: ICharacter) => {
@@ -114,14 +117,7 @@ const Characters = () => {
                         return (
                             <CharacterCard
                                 key={character.id}
-                                image={character.image}
-                                name={character.name}
-                                status={character.status}
-                                species={character.species}
-                                gender={character.gender}
-                                origin={character.origin.name}
-                                id={character.id}
-                                location={character.location.name}
+                                {...character}
                             />
                         );
                     })}

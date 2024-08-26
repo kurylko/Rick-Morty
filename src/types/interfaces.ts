@@ -21,7 +21,7 @@ export interface ILocation {
     type: string;
     dimension: string;
     number_of_residents: number;
-    residents: string;
+    residents: string[];
 }
 
 export interface InputProps {
@@ -32,7 +32,7 @@ export interface InputProps {
 
 
 export interface ICharactersFiltersProps {
-    filteredCategoryOptions: string;
-    onSelect: (e: SyntheticEvent<HTMLDivElement>) => void;
+    filteredCategoryOptions: string[];
+    onSelect: (event: React.ChangeEvent<HTMLSelectElement>) => void;
     category: string
 }
