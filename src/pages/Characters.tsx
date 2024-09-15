@@ -88,7 +88,7 @@ const Characters = () => {
 
     return (
         <div className="characters-page">
-            <h1 id="characters"> Rick & Morty Characters </h1>
+            <h1 className="text-3xl font-bold underline"> Rick & Morty Characters </h1>
             <div className="characters-page-content">
                 <div className="filter-container">
                     <Banner />
