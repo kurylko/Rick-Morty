@@ -5,7 +5,7 @@ const SearchBar = (props: InputProps) => {
 
     return (
         <>
-            <div className="search_bar">
+            <div className="block">
                     <label htmlFor="header-search">
                         <span className="visually-hidden">Search </span>
                     </label>
@@ -15,7 +15,7 @@ const SearchBar = (props: InputProps) => {
                            onChange={handleChange}
                            value={searchInput}
                     />
-                    <button className="search_button">Search</button>
+                    <button className="hidden">Search</button>
             </div>
         </>
     )
