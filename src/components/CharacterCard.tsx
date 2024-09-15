@@ -4,6 +4,22 @@ import {ICharacter} from "../types/interfaces";
 const CharacterCard = ({image, name, status, species, gender, origin, location} : ICharacter) => {
 
     return (
+        <div className="card lg:card-side bg-base-100 shadow-xl">
+            <figure>
+                <img src={image} alt={`${name} image`}/>
+            </figure>
+            <div className="card-body">
+                <h2 className="card-title">{name} </h2>
+                <p>Status: {status}</p>
+                <p>Species: {species}</p>
+                <p>Gender: {gender}</p>
+                <p>Origin: {origin.name}</p>
+                <p>Location: {location.name}</p>
+            </div>
+        </div>
+    )
+
+    {/*
         <div className="characterCard">
             <div className="character-image-container">
                 <img className="character-image" src={image} alt={`${name} image`}/>
@@ -28,7 +44,7 @@ const CharacterCard = ({image, name, status, species, gender, origin, location} 
                 </div>
             </div>
         </div>
-    )
+        */}
 }
 
 export default CharacterCard

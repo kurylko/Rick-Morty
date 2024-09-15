@@ -87,9 +87,9 @@ const Characters = () => {
 
 
     return (
-        <div className="characters-page">
+        <div className="flex-col w-screen">
             <h1 className="text-3xl font-bold underline"> Rick & Morty Characters </h1>
-            <div className="characters-page-content">
+            <div className="flex-col w-full">
                 <div className="filter-container">
                     <Banner />
                     <h2 className="before-filters-text">Find the character </h2>
@@ -111,7 +111,7 @@ const Characters = () => {
                         onSelect={handleSelectGender}
                     />
                 </div>
-                <div className="character-cards">
+                <div className="flex">
                     {finalListOfCharacters.map((character: ICharacter) => {
                         const {name} = character.origin;
                         return (

@@ -1,4 +1,5 @@
 import './App.css'
+import './index.css'
 import Layout from "./components/Layout";
 import Characters from "./pages/Characters";
 import Locations from "./pages/Locations";

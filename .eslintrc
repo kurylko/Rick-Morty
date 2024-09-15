@@ -1,6 +1,7 @@
 {
   "env": {
     "browser": true,
+    "node": true,
     "es6": true
   },
   "extends": [
@@ -14,9 +15,10 @@
     },
     "requireConfigFile": false,
     "ecmaFeatures": {
-      "jsx": true,
+      "jsx": true
     },
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 12
   },
   "plugins": [
     "react",
