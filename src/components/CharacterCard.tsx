@@ -5,16 +5,19 @@ const CharacterCard = ({image, name, status, species, gender, origin, location} 
 
     return (
         <div className="card lg:card-side bg-base-100 shadow-xl w-full">
-            <figure>
+            <figure className="h-40 w-1/3">
                 <img src={image} alt={`${name} image`}/>
             </figure>
-            <div className="card-body">
-                <h2 className="card-title">{name} </h2>
-                <p>Status: {status}</p>
-                <p>Species: {species}</p>
-                <p>Gender: {gender}</p>
-                <p>Origin: {origin.name}</p>
-                <p>Location: {location.name}</p>
+            <div className="flex flex-col flex-1">
+                <h2 className="bg-primary text-white rounded-tr-lg rounded-b-none text-center">{name} </h2>
+                <div className="flex flex-col items-start ml-3 gap-1">
+                    <p>Status: {status}</p>
+                    <p>Species: {species}</p>
+                    <p>Gender: {gender}</p>
+                    <p>Origin: {origin.name}</p>
+                    <p>Location: {location.name}</p>
+                </div>
+
             </div>
         </div>
     )
