@@ -92,7 +92,7 @@ const Characters = () => {
             <div className="flex w-10/12 justify-between mt-3">
                 <div className="flex-col w-1/3 pl-10 gap-2">
                     <Banner />
-                    <h2 className="text-purple-600">Find the character </h2>
+                    <h2 className="text-purple-600 text-2xl font-bold my-3">Find the character </h2>
                     <SearchBar handleChange={handleChange} searchInput={searchInput}
                                placeholder={"Type the name of character..."}/>
                     <Filter

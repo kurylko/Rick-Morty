@@ -12,7 +12,7 @@ const Layout = () => {
 
     return (
         <div className="flex-col w-full">
-            <div className="flex w-full justify-end bg-purple-700">
+            <div className="flex w-full justify-end bg-purple-700 h-16">
                 {!showMenu ? null :
                     <Menu/>
                 }

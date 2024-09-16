@@ -29,15 +29,16 @@ const Locations = () => {
 
 
     return (
-        <div className="locations-page">
-            <h1 id="locations">Locations of Rick & Morty universe </h1>
+        <div className="flex flex-col w-screen gap-3 items-center justify-center">
+            <h1 id="locations" className="text-3xl font-bold mt-3">Locations of Rick & Morty universe </h1>
 
-            <div className="location-cards-container">
+            <div className="flex flex-col w-4/5 justify-center gap-3 items-center mt-3">
                 {locations.map((location) => {
                     const residents = location['residents'];
                     const parsedResidents = residents.map(resident => resident.split('/').slice(-1)[0]).join(',')
 
-                    return <Link to={`/characters/${parsedResidents}`} className="locations-link">
+                    return <Link to={`/characters/${parsedResidents}`}
+                                 className="flex flex-col w-full justify-center items-center gap-3">
                         <LocationCard
                             {...location}
                             id={location.id}
@@ -47,9 +48,13 @@ const Locations = () => {
                             number_of_residents={location.residents.length}/>
                     </Link>
                 })}
-                <div className="nextPrevBtnContainer">
-                    <button className="paginationBtn" onClick={handlePreviousPage}>Previous Page</button>
-                    <button className="paginationBtn" onClick={handleNextPage}>Next Page</button>
+                <div className="flex w-1/3 py-10 place-content-around">
+                    <button className="rounded-lg border-solid border-1 border-cyan-700"
+                            onClick={handlePreviousPage}>Previous Page
+                    </button>
+                    <button className="rounded-lg border-solid border-1 border-cyan-700" onClick={handleNextPage}>Next
+                        Page
+                    </button>
                 </div>
             </div>
         </div>

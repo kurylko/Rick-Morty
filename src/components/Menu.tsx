@@ -1,24 +1,21 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 const Menu = () => {
 
     return (
-        <div className="flex w-screen h-16 bg-purple-700 text-white font-normal sticky top-0 delay-1000">
-            <ul className="flex justify-center items-center w-full gap-2 list-none">
-                <Link to="characters">
-                    <li className="text-white p-2.5 border-lg border-solid border-1 border-white">
-                        Characters
-                    </li>
-                </Link>
-
-                <Link to="locations">
-                    <li className="text-white p-2.5 border-lg border-solid border-1 border-white">
-                        Locations
-                    </li>
-                </Link>
-
-            </ul>
+        <div className="flex w-full h-full bg-purple-700 text-white font-normal sticky top-0 delay-1000 justify-between">
+            <div className="flex justify-center items-center w-full gap-4 list-none">
+                <a href="characters" className="link link-hover">
+                    <button
+                        className="btn btn-outline text-white p-2.5 border-lg border-solid border-1 border-white">Characters
+                    </button>
+                </a>
+                <a href="locations" className="link link-hover">
+                    <button
+                        className="btn btn-outline text-white p-2.5 border-lg border-solid border-1 border-white">Locations
+                    </button>
+                </a>
+            </div>
         </div>
     )
 }

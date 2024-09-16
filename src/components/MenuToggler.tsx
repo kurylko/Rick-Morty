@@ -7,7 +7,7 @@ interface IMenuToggler {
 
 const MenuToggler = ({showMenu, handleToggler} : IMenuToggler) => {
     return (
-        <div className="menu-toggler" onClick={handleToggler}>
+        <div className="flex bg-purple-700 text-white h-full w-14 mr-1" onClick={handleToggler}>
             {showMenu ? "Close X" : "Open ▼"}
         </div>
     )

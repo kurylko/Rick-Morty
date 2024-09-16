@@ -1,7 +1,7 @@
 import React from "react";
 import {ICharactersFiltersProps} from "../types/interfaces";
 
-const Filter = ({category, filteredCategoryOptions, onSelect} : ICharactersFiltersProps) => {
+const Filter = ({category, filteredCategoryOptions, onSelect}: ICharactersFiltersProps) => {
 
     return (
         <div className="block">
