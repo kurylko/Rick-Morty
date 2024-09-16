@@ -4,7 +4,7 @@ import {ICharacter} from "../types/interfaces";
 const CharacterCard = ({image, name, status, species, gender, origin, location} : ICharacter) => {
 
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side bg-base-100 shadow-xl w-full">
             <figure>
                 <img src={image} alt={`${name} image`}/>
             </figure>

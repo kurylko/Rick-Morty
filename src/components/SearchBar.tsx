@@ -5,9 +5,9 @@ const SearchBar = (props: InputProps) => {
 
     return (
         <>
-            <div className="block">
+            <div className="block w-2/3">
                 <label htmlFor="header-search">
-                    <span className="visually-hidden">Search </span>
+                    <span className="visually-hidden"></span>
                 </label>
                 <input
                     className="input input-bordered w-full max-w-xs transition-colors duration-300 ease-in-out focus:bg-[rgba(148,47,255,0.07)] transition-colors duration-300 ease-in-out"
@@ -15,7 +15,7 @@ const SearchBar = (props: InputProps) => {
                     placeholder={placeholder}
                     onChange={handleChange}
                     value={searchInput}/>
-                <button className="hidden">Search</button>
+                <button className="hidden"></button>
             </div>
         </>
     )

@@ -87,10 +87,10 @@ const Characters = () => {
 
 
     return (
-        <div className="flex-col w-screen">
+        <div className="flex flex-col w-full items-center justify-center gap-3">
             <h1 className="text-3xl font-bold mt-3"> Rick & Morty Characters </h1>
-            <div className="flex w-10/12 justify-between mt-3">
-                <div className="flex-col w-1/3 pl-10 gap-2">
+            <div className="flex w-10/12 justify-between mt-3 self-center">
+                <div className="flex flex-col w-1/3 pl-10 gap-2 items-center">
                     <Banner />
                     <h2 className="text-purple-600 text-2xl font-bold my-3">Find the character </h2>
                     <SearchBar handleChange={handleChange} searchInput={searchInput}
@@ -111,7 +111,7 @@ const Characters = () => {
                         onSelect={handleSelectGender}
                     />
                 </div>
-                <div className="flex-col items-center w-100 gap-3">
+                <div className="flex flex-col items-center w-100 gap-3">
                     {finalListOfCharacters.map((character: ICharacter) => {
                         const {name} = character.origin;
                         return (
@@ -121,7 +121,7 @@ const Characters = () => {
                             />
                         );
                     })}
-                    <div className="flex w-50 py-10 place-content-around">
+                    <div className="flex w-2/3 py-10 place-content-around">
                         <button className="rounded-lg border-solid border-1 border-cyan-700" onClick={handlePreviousPage}>Previous Page</button>
                         <button className="rounded-lg border-solid border-1 border-cyan-700" onClick={handleNextPage}>Next Page</button>
                     </div>
