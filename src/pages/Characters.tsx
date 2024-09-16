@@ -85,7 +85,7 @@ const Characters = () => {
 
 
     return (
-        <div className="flex flex-col w-full items-center justify-center gap-3 bg-light">
+        <div className="flex flex-col w-full min-h-screen items-center justify-center gap-3 bg-light">
             <h1 className="text-3xl font-bold mt-3"> Rick & Morty Characters </h1>
             <div className="flex w-10/12 lg:justify-between sm:gap-3 mt-3 self-center">
                 <div className="flex flex-col w-1/3 pl-10 gap-2 items-center">
@@ -119,8 +119,8 @@ const Characters = () => {
                         );
                     })}
                     <div className="flex w-2/3 py-10 place-content-around">
-                        <button className="rounded-lg border-solid border-1 border-cyan-700" onClick={handlePreviousPage}>Previous Page</button>
-                        <button className="rounded-lg border-solid border-1 border-cyan-700" onClick={handleNextPage}>Next Page</button>
+                        <button className="rounded-lg border-solid border border-primary p-1.5 hover:bg-primary hover:text-white" onClick={handlePreviousPage}>Previous Page</button>
+                        <button className="rounded-lg border-solid border border-primary p-1.5 hover:bg-primary hover:text-white" onClick={handleNextPage}>Next Page</button>
                     </div>
                 </div>
             </div>

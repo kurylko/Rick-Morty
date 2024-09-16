@@ -29,7 +29,7 @@ const Locations = () => {
 
 
     return (
-        <div className="flex flex-col w-screen gap-3 items-center justify-center bg-light">
+        <div className="flex flex-col w-screen min-h-screen gap-3 items-center justify-center bg-light">
             <h1 id="locations" className="text-3xl font-bold mt-3">Locations of Rick & Morty universe </h1>
 
             <div className="flex flex-col w-4/5 justify-center gap-3 items-center mt-3">
@@ -51,10 +51,10 @@ const Locations = () => {
                     </Link>
                 })}
                 <div className="flex w-1/3 py-10 place-content-around">
-                    <button className="rounded-lg border-solid border-1 border-cyan-700"
+                    <button className="rounded-lg border-solid border border-primary p-1.5 hover:bg-primary hover:text-white"
                             onClick={handlePreviousPage}>Previous Page
                     </button>
-                    <button className="rounded-lg border-solid border-1 border-cyan-700" onClick={handleNextPage}>Next
+                    <button className="rounded-lg border-solid border border-primary p-1.5 hover:bg-primary hover:text-white" onClick={handleNextPage}>Next
                         Page
                     </button>
                 </div>
