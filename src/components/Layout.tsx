@@ -9,10 +9,12 @@ const Layout = () => {
         setShowMenu(!showMenu)
     };
 
+    console.log(showMenu)
+
 
     return (
-        <div className="flex-col w-full justify-center items-center">
-            <div className="flex w-full justify-end bg-purple-700 h-16">
+        <div className="flex flex-col w-screen">
+            <div className="flex w-full justify-end bg-primary h-full">
                 {!showMenu ? null :
                     <Menu/>
                 }

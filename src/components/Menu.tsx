@@ -3,7 +3,7 @@ import React from "react";
 const Menu = () => {
 
     return (
-        <div className="flex w-full h-full bg-purple-700 text-white font-normal sticky top-0 delay-1000 justify-between">
+        <div className="flex w-screen h-16 bg-primary text-white font-normal sticky top-0 delay-1000 justify-between">
             <div className="flex justify-center items-center w-full gap-4 list-none">
                 <a href="characters" className="link link-hover">
                     <button
