@@ -6,9 +6,11 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "babelOptions": {
       "presets": ["@babel/preset-react", "@babel/preset-typescript"]
@@ -23,13 +25,16 @@
   "plugins": [
     "react",
     "react-hooks",
-    "typescript"
+    "typescript",
+    "@typescript-eslint"
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "no-undef": "off"
+    "no-undef": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-unused-vars": ["error"]
   }
 }

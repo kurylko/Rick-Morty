@@ -9,8 +9,6 @@ const Layout = () => {
         setShowMenu(!showMenu)
     };
 
-    console.log(showMenu)
-
 
     return (
         <div className="flex flex-col w-screen">

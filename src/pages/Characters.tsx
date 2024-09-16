@@ -1,7 +1,7 @@
 import CharacterCard from "../components/CharacterCard";
 import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
-import {ChangeEvent, useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
 import {useParams} from 'react-router-dom';
@@ -21,7 +21,7 @@ const Characters = () => {
             .catch(error => {
                 console.log(error);
             });
-    }, [currentPage]);
+    }, [currentPage, residents]);
 
     const charactersList = characters || [];
 
@@ -33,9 +33,9 @@ const Characters = () => {
         setSearchInput(e.target.value);
     };
 
-    let statusOptions = ["Alive", "Dead", "unknown"];
-    let speciesOptions = ["Human", "Alien"];
-    let genderOptions = ["Female", "Male", "Genderless", "unknown"];
+    const statusOptions = ["Alive", "Dead", "unknown"];
+    const speciesOptions = ["Human", "Alien"];
+    const genderOptions = ["Female", "Male", "Genderless", "unknown"];
 
 
 
@@ -57,13 +57,13 @@ const Characters = () => {
 
 
 
-    const filteredCharacters = charactersList.filter((character: ICharacter) => {
+    const finalListOfCharacters = charactersList.filter((character: ICharacter) => {
 
-        let isMatchedBySearch =
+        const isMatchedBySearch =
             character.name.toLowerCase().includes(searchInput.toLowerCase()) || !searchInput;
-        let isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
-        let isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
-        let isMatchedByGender = character.gender === selectedGender || !selectedGender;
+        const isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
+        const isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
+        const isMatchedByGender = character.gender === selectedGender || !selectedGender;
 
         return (
             isMatchedBySearch &&
@@ -72,8 +72,6 @@ const Characters = () => {
             isMatchedByGender
         );
     });
-
-    const finalListOfCharacters = filteredCharacters;
 
 
     const handleNextPage = () => {
@@ -113,7 +111,6 @@ const Characters = () => {
                 </div>
                 <div className="flex flex-col items-center w-2/3 gap-3">
                     {finalListOfCharacters.map((character: ICharacter) => {
-                        const {name} = character.origin;
                         return (
                             <CharacterCard
                                 key={character.id}

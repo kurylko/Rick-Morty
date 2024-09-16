@@ -38,7 +38,9 @@ const Locations = () => {
                     const parsedResidents = residents.map(resident => resident.split('/').slice(-1)[0]).join(',')
 
                     return <Link to={`/characters/${parsedResidents}`}
-                                 className="flex flex-col w-full justify-center items-center gap-3">
+                                 className="flex flex-col w-full justify-center items-center gap-3"
+                                 key={location.id}
+                    >
                         <LocationCard
                             {...location}
                             id={location.id}
