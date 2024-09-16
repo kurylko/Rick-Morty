@@ -1,21 +1,21 @@
 import React from "react";
-import {ICharacter, ILocation} from "../types/interfaces";
+import {ILocation} from "../types/interfaces";
 
 const LocationCard = (props: ILocation) => {
-    const {name, type, dimension, number_of_residents, residents} = props;
+    const {name, type, dimension, number_of_residents} = props;
     return (
-        <div className="locationCard">
-            <div className="location-name">{name}</div>
-            <div className="location-infoBox">
-                <div className="location-question">
-                    <li className="location-info">Type:</li>
-                    <li className="location-info">Dimension:</li>
-                    <li className="location-info">Number of residents:</li>
+        <div className="flex flex-col w-4/5 rounded-lg border-solid border-1 border-border hover:bg-secondary bg-base-100 shadow-xl">
+            <div className="flex w-full h-10 bg-primary text-white justify-center font-normal items-center rounded-t-lg rounded-b-none">{name}</div>
+            <div className="flex w-full gap-3 p-3.5">
+                <div className="flex flex-col items-start">
+                    <li className="list-none text-left text-border">Type:</li>
+                    <li className="list-none text-left text-border">Dimension:</li>
+                    <li className="list-none text-left text-border">Number of residents:</li>
                 </div>
-                <div className="location-answer">
-                    <li className="location-info">{type}</li>
-                    <li className="location-info">{dimension}</li>
-                    <li className="location-info">{number_of_residents}</li>
+                <div className="flex flex-col items-start">
+                    <li className="list-none text-left text-primary">{type}</li>
+                    <li className="list-none text-left text-primary">{dimension}</li>
+                    <li className="list-none text-left text-primary">{number_of_residents}</li>
                 </div>
             </div>
 

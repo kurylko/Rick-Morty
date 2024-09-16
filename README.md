@@ -11,9 +11,9 @@ Task: to develop single page web application, which displays characters and loca
 
 # Dependencies:
 
-babel/eslint-parser:
+TypeScript
 
-babel/preset-react
+ESLint
     
 axios
     
@@ -24,6 +24,10 @@ react
 react-dom
     
 react-router-dom
+
+Tailwind CSS
+
+daisyUI
 
 
 ![Project screen](public/rick.png)

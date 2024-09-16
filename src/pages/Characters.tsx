@@ -1,7 +1,7 @@
 import CharacterCard from "../components/CharacterCard";
 import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
-import {ChangeEvent, useEffect, useState} from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import axios from "axios";
 import {ICharacter} from "../types/interfaces";
 import {useParams} from 'react-router-dom';
@@ -21,7 +21,7 @@ const Characters = () => {
             .catch(error => {
                 console.log(error);
             });
-    }, [currentPage]);
+    }, [currentPage, residents]);
 
     const charactersList = characters || [];
 
@@ -33,9 +33,9 @@ const Characters = () => {
         setSearchInput(e.target.value);
     };
 
-    let statusOptions = ["Alive", "Dead", "unknown"];
-    let speciesOptions = ["Human", "Alien"];
-    let genderOptions = ["Female", "Male", "Genderless", "unknown"];
+    const statusOptions = ["Alive", "Dead", "unknown"];
+    const speciesOptions = ["Human", "Alien"];
+    const genderOptions = ["Female", "Male", "Genderless", "unknown"];
 
 
 
@@ -57,13 +57,13 @@ const Characters = () => {
 
 
 
-    const filteredCharacters = charactersList.filter((character: ICharacter) => {
+    const finalListOfCharacters = charactersList.filter((character: ICharacter) => {
 
-        let isMatchedBySearch =
+        const isMatchedBySearch =
             character.name.toLowerCase().includes(searchInput.toLowerCase()) || !searchInput;
-        let isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
-        let isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
-        let isMatchedByGender = character.gender === selectedGender || !selectedGender;
+        const isMatchedByStatus = character.status === selectedStatus || !selectedStatus;
+        const isMatchedBySpecies = character.species === selectedSpecies || !selectedSpecies;
+        const isMatchedByGender = character.gender === selectedGender || !selectedGender;
 
         return (
             isMatchedBySearch &&
@@ -72,8 +72,6 @@ const Characters = () => {
             isMatchedByGender
         );
     });
-
-    const finalListOfCharacters = filteredCharacters;
 
 
     const handleNextPage = () => {
@@ -87,12 +85,12 @@ const Characters = () => {
 
 
     return (
-        <div className="characters-page">
-            <h1 id="characters"> Rick & Morty Characters </h1>
-            <div className="characters-page-content">
-                <div className="filter-container">
+        <div className="flex flex-col w-full min-h-screen items-center justify-center gap-3 bg-light">
+            <h1 className="text-3xl font-bold mt-3"> Rick & Morty Characters </h1>
+            <div className="flex w-10/12 lg:justify-between sm:gap-3 mt-3 self-center">
+                <div className="flex flex-col w-1/3 pl-10 gap-2 items-center">
                     <Banner />
-                    <h2 className="before-filters-text">Find the character </h2>
+                    <h2 className="text-purple-600 text-2xl font-bold my-3">Find the character </h2>
                     <SearchBar handleChange={handleChange} searchInput={searchInput}
                                placeholder={"Type the name of character..."}/>
                     <Filter
@@ -111,9 +109,8 @@ const Characters = () => {
                         onSelect={handleSelectGender}
                     />
                 </div>
-                <div className="character-cards">
+                <div className="flex flex-col items-center w-2/3 gap-3">
                     {finalListOfCharacters.map((character: ICharacter) => {
-                        const {name} = character.origin;
                         return (
                             <CharacterCard
                                 key={character.id}
@@ -121,11 +118,10 @@ const Characters = () => {
                             />
                         );
                     })}
-                    <div className="nextPrevBtnContainer">
-                        <button className="paginationBtn" onClick={handlePreviousPage}>Previous Page</button>
-                        <button className="paginationBtn" onClick={handleNextPage}>Next Page</button>
+                    <div className="flex w-2/3 py-10 place-content-around">
+                        <button className="rounded-lg border-solid border border-primary p-1.5 hover:bg-primary hover:text-white" onClick={handlePreviousPage}>Previous Page</button>
+                        <button className="rounded-lg border-solid border border-primary p-1.5 hover:bg-primary hover:text-white" onClick={handleNextPage}>Next Page</button>
                     </div>
-
                 </div>
             </div>
         </div>

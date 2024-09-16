@@ -1,4 +1,4 @@
-import './App.css'
+import './index.css'
 import Layout from "./components/Layout";
 import Characters from "./pages/Characters";
 import Locations from "./pages/Locations";
@@ -8,7 +8,7 @@ import {Route, Routes} from "react-router-dom";
 function App() {
 
     return (
-        <div className="App">
+        <div className="flex flex-col items-center justify-center w-screen h-full">
             <Layout/>
             <Routes>
                 <Route path="/" element={<Characters/>}/>

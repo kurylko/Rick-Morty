@@ -11,8 +11,8 @@ const Layout = () => {
 
 
     return (
-        <div className="layout">
-            <div className="menu-container">
+        <div className="flex flex-col w-screen">
+            <div className="flex w-full justify-end bg-primary h-full">
                 {!showMenu ? null :
                     <Menu/>
                 }
