@@ -4,9 +4,9 @@ import {ICharacter} from "../types/interfaces";
 const CharacterCard = ({image, name, status, species, gender, origin, location} : ICharacter) => {
 
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl w-full">
-            <figure className="h-40 w-1/3">
-                <img src={image} alt={`${name} image`}/>
+        <div className="card lg:card-side sm:card-side bg-base-100 shadow-xl w-full h-40">
+            <figure className="h-full w-1/4">
+                <img src={image} alt={`${name} image`} className='h-full'/>
             </figure>
             <div className="flex flex-col flex-1">
                 <h2 className="bg-primary text-white rounded-tr-lg rounded-b-none text-center">{name} </h2>

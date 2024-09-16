@@ -29,7 +29,7 @@ const Locations = () => {
 
 
     return (
-        <div className="flex flex-col w-screen gap-3 items-center justify-center">
+        <div className="flex flex-col w-screen gap-3 items-center justify-center bg-light">
             <h1 id="locations" className="text-3xl font-bold mt-3">Locations of Rick & Morty universe </h1>
 
             <div className="flex flex-col w-4/5 justify-center gap-3 items-center mt-3">

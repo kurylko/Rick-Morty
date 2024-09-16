@@ -87,9 +87,9 @@ const Characters = () => {
 
 
     return (
-        <div className="flex flex-col w-full items-center justify-center gap-3">
+        <div className="flex flex-col w-full items-center justify-center gap-3 bg-light">
             <h1 className="text-3xl font-bold mt-3"> Rick & Morty Characters </h1>
-            <div className="flex w-10/12 justify-between mt-3 self-center">
+            <div className="flex w-10/12 lg:justify-between sm:gap-3 mt-3 self-center">
                 <div className="flex flex-col w-1/3 pl-10 gap-2 items-center">
                     <Banner />
                     <h2 className="text-purple-600 text-2xl font-bold my-3">Find the character </h2>
@@ -111,7 +111,7 @@ const Characters = () => {
                         onSelect={handleSelectGender}
                     />
                 </div>
-                <div className="flex flex-col items-center w-100 gap-3">
+                <div className="flex flex-col items-center w-2/3 gap-3">
                     {finalListOfCharacters.map((character: ICharacter) => {
                         const {name} = character.origin;
                         return (

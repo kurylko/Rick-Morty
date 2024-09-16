@@ -13,6 +13,7 @@ export default {
         'primary': '#7b47f5',
         'secondary': '#CCC8A4',
         'border': '#213547',
+        'light': '#fcf3e8',
       },
     },
   },

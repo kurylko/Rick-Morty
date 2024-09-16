@@ -4,15 +4,15 @@ const Menu = () => {
 
     return (
         <div className="flex w-screen h-16 bg-primary text-white font-normal sticky top-0 delay-1000 justify-between">
-            <div className="flex justify-center items-center w-full gap-4 list-none">
+            <div className="flex justify-center items-center w-full gap-4 list-none pb-1">
                 <a href="characters" className="link link-hover">
                     <button
-                        className="btn btn-outline text-white p-2.5 border-lg border-solid border-1 border-white">Characters
+                        className="btn btn-outline text-white p-2.5 border-lg border-solid border-1 border-white hover:bg-border">Characters
                     </button>
                 </a>
                 <a href="locations" className="link link-hover">
                     <button
-                        className="btn btn-outline text-white p-2.5 border-lg border-solid border-1 border-white">Locations
+                        className="btn btn-outline text-white p-2.5 border-lg border-solid border-1 border-white hover:bg-border">Locations
                     </button>
                 </a>
             </div>
